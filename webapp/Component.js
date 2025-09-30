@@ -5,7 +5,7 @@ sap.ui.define([
    "use strict";
 
    return UIComponent.extend("ui5.walkthrough.Component", {
-      metadata : {
+      metadata: {
          interfaces: ["sap.ui.core.IAsyncContentCreation"],
          manifest: "json"
       },
@@ -16,12 +16,15 @@ sap.ui.define([
 
          // set data model
          const oData = {
-            recipient : {
-               name : "World"
+            recipient: {
+               name: "World"
             }
          };
          const oModel = new JSONModel(oData);
          this.setModel(oModel);
+
+         // create the views based on the url/hash
+         this.getRouter().initialize();
       }
    });
 });
